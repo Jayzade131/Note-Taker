@@ -24,20 +24,21 @@
 
 	<div class="container">
 		<h1>Please fill your notes detail :</h1>
-		<form action="saveNoteServlet" method="post">
+		<form action="SaveNoteServlet" method="post">
 			<div class="form-group">
-				<label for="notetitle">Note Title</label> <input required type="text" 
-					id="title" aria-describedby="emailHelp" class="form-control"
-					placeholder="Enter Note Title">
+				<label for="notetitle">Note Title</label> <input required
+					type="text" name="title" id="title" aria-describedby="emailHelp"
+					class="form-control" placeholder="Enter Note Title">
 
 			</div>
 			<div class="form-group">
 				<label for=notecontent>Note Content</label>
 				<textarea required rows="" cols="" class="form-control"
-					style="height: 300px;" placeholder="Enter Note Content"></textarea>
+					name="content" style="height: 300px;"
+					placeholder="Enter Note Content"></textarea>
 			</div>
 			<div class="conatiner text-center">
-			<button type="submit" class="btn btn-primary">Add</button>
+				<button type="submit" class="btn btn-primary">Add</button>
 			</div>
 		</form>
 
