@@ -1,6 +1,7 @@
 package com.servelts;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -33,6 +34,10 @@ public class SaveNoteServlet extends HttpServlet {
 			s.save(note);
 			tx.commit();
 			s.close();
+			response.setContentType("text/html");
+			PrintWriter out=response.getWriter();
+			out.println("<h1 style='text-align:center;'>Note Is Add Sucessfully</h1>");
+			out.println("<h1 style='text-align:center;'><a href='showNotes.jsp' >View All Notes</a></h1>");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
