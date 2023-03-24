@@ -21,7 +21,7 @@
   <body>
     
 <div class="container-fluid p-0 m-0 ">
-<%@include file="navbar.jsp" %>
+<%@include file="navbar.jsp"%>
 </div>
 
   </body>
