@@ -29,7 +29,7 @@
 <%@include file="navbar.jsp" %>
 </div>
 <br>
-<h1 class="text-uppercase">All Notes :</h1>
+<h1 class="text-uppercase px-5">All Notes :</h1>
 <div class="row">
 <div class="col-12">
 <% 
@@ -45,8 +45,8 @@ for(Note note :list)
   
     <h5 class="card-title"><%=note.getTitle() %></h5>
     <p class="card-text"><%=note.getContent() %></p>
-    <a href="DeleteServlet?note_id=<%=note.getId() %>" class="btn btn-danger">Delete</a>
-    <a href="#" class="btn btn-primary">Update</a>
+    <a href="DeleteServlet?id=<%=note.getId() %>" class="btn btn-danger">Delete</a>
+    <a href="edit.jsp?id=<%=note.getId() %>" class="btn btn-primary">Update</a>
   </div>
 </div>
 

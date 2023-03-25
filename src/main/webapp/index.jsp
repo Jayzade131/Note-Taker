@@ -23,6 +23,9 @@
 <div class="container-fluid p-0 m-0 ">
 <%@include file="navbar.jsp"%>
 </div>
+<div class="">
+<h1> Notes Taker</h1>
+</div>
 
   </body>
 </html>

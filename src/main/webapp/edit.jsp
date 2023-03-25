@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@page import="com.entities.*"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="com.helper.FactoryProvider"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css" />
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<title>Note Taker : Edit Page</title>
+</head>
+<body>
+	<div class="container-fluid p-0 m-0 ">
+		<%@include file="navbar.jsp"%>
+	</div>
+	<br>
+	<%
+		int noteId = Integer.parseInt(request.getParameter("id").trim());
+		Session s = FactoryProvider.getFactory().openSession();
+		Note note = (Note) s.get(Note.class, noteId);
+	%>
+	<div class="container">
+		<h1>Please Edit Your Note Detail :</h1>
+		<form action="UpdateServlet" method="post">
+		<input value="<%=note.getId()%>" name="noteId" type="hidden">
+			<div class="form-group">
+				<label for="notetitle">Note Title</label> <input required
+					type="text" name="title" id="title" aria-describedby="emailHelp"
+					class="form-control" placeholder="Enter Note Title"
+					value="<%=note.getTitle()%>">
+
+			</div>
+			<div class="form-group">
+				<label for=notecontent>Note Content</label>
+				<textarea required rows="" cols="" class="form-control"
+					name="content" style="height: 300px;"
+					placeholder="Enter Note Content"> <%=note.getContent()%></textarea>
+			</div>
+			<div class="conatiner text-center">
+				<button type="submit" class="btn btn-success">Save</button>
+			</div>
+		</form>
+
+	</div>
+
+</body>
+</html>
